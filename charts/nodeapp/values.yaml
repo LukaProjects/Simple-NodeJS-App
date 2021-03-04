@@ -1,0 +1,18 @@
+global:
+  deployment:
+    name: nodeapp-deployment
+    app: nodeapp
+    dockerimage:
+      containerName: nodeapp
+      image: nodeapp:latest
+      containerPort: 9001
+    
+  service:
+    name: nodeapp-service
+    labels: nodeapp
+    type: ClusterIP
+    ports: 
+      port: 9000
+      targetPort: 9001
+      protocol: TCP 
+    selector: nodeapp
